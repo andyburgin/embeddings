@@ -17,7 +17,7 @@ def main(tokenizer_name, model_name, prompt):
     # make a forward pass
     outputs = model(input_ids, output_hidden_states=True)
 
-    # Get embeddings from last hidden state layer
+    # Get embeddings from hidden state layers
     embeddings = outputs.hidden_states
 
     for idx, e in enumerate(embeddings):
