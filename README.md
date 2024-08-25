@@ -48,5 +48,9 @@ python extract_embeddings_hidden_all.py  --model TinyLlama/TinyLlama-1.1B-Chat-v
 ```
 
 ```bash
+python extract_embeddings_input.py --model TinyLlama/TinyLlama-1.1B-Chat-v1.0 --tokenizer TinyLlama/TinyLlama-1.1B-Chat-v1.0 --prompt "who is ada lovelace" --output_prefix output/input
+```
+
+```bash
 python visualize_cosine_similarity.py --tokenizer "meta-llama/Meta-Llama-3-8b-Instruct" --model "meta-llama/Meta-Llama-3-8b-Instruct" --embeddings_file "./output/llama3_8b_embeddings_layer.pth" --dimensions 4096 --prompt "Sit Sat Mat Bat Hat Cat Nap Kit Kat Dog Fish Tree Math London Paris Rio Berlin Sydney Moscow Red Blue Green Black White for while print loop"
 ```
