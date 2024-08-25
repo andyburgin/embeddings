@@ -10,6 +10,7 @@ def parse_args():
     parser.add_argument("--prompt", required=False, default="Who is Ada Lovelace?", help="Prompt to execute")
     parser.add_argument("--embeddings_file", required=False, default="./output/gemma_2b_embeddings_layer.pth", help="embeddings filename")
     parser.add_argument("--dimensions", required=False, default=2048, help="number of dimensions")
+    parser.add_argument("--output_prefix", required=False, default="./output/layer", help="embeddings layer filename prefix")
 
     # parse the arguments
     args = parser.parse_args()
