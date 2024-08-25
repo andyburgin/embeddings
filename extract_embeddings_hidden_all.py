@@ -30,7 +30,6 @@ def main(tokenizer_name, model_name, output_prefix, prompt):
 
     # Save the embeddings layers
     for layer in range(len(embeddings)):
-    #    torch.save(embeddings[layer].state_dict(), output_prefix+"-"+str(layer)+".txt")
         np.savetxt(output_prefix+"-"+str(layer)+".txt", embeddings[layer][0].detach().numpy())
 
 
