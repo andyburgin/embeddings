@@ -20,8 +20,9 @@ def main(tokenizer_name, model_name, output_prefix, prompt):
     outputs = model(input_ids)
 
     # Directly use the embeddings layer to get embeddings for the input_ids
-    embeddings = outputs.last_hidden_state
-    
+    with torch.no_grad():
+        embeddings = model.get_input_embeddings()(input_ids)
+
     # Use the utility function to print direct embeddings
     print_direct_embeddings(tokenizer, embeddings, input_ids)
 
