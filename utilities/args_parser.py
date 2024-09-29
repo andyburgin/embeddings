@@ -11,6 +11,8 @@ def parse_args():
     parser.add_argument("--embeddings_file", required=False, default="./output/gemma_2b_embeddings_layer.pth", help="embeddings filename")
     parser.add_argument("--dimensions", required=False, default=2048, help="number of dimensions")
     parser.add_argument("--output_prefix", required=False, default="./output/layer", help="embeddings layer filename prefix")
+    parser.add_argument("--score", required=False, default="8", help="score threshold for model output")
+    parser.add_argument("--probability", required=False, default="1", help="probability % threshold for model output")
 
     # parse the arguments
     args = parser.parse_args()

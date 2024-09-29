@@ -40,6 +40,10 @@ python print_tokens.py --tokenizer "mistralai/Mistral-7B-v0.1" --prompt "Who is 
 ```
 
 ```bash
+python print_output.py --model TinyLlama/TinyLlama-1.1B-Chat-v1.0 --tokenizer TinyLlama/TinyLlama-1.1B-Chat-v1.0 --prompt "I like to listen to music on my"  --score 8.2 --probability 0.01
+```
+
+```bash
 python extract_embeddings.py --tokenizer "meta-llama/Meta-Llama-3-8b-Instruct" --model "meta-llama/Meta-Llama-3-8b-Instruct" --embeddings_file "./output/llama3_8b_embeddings_layer.pth" --dimensions 4096
 ```
 
