@@ -29,6 +29,13 @@ def main(tokenizer_name, model_name, output_prefix, prompt):
     # Save the embeddings layers
     np.savetxt(output_prefix+".txt", embeddings[0].detach().numpy())
 
+    #print the tokens
+    print("[", end="")
+    for i,t in zip(range(len(tokens.input_ids[0])), tokens.input_ids[0]):
+        if i > 0:
+            print(", ", end="")
+        print(f"\"{tokenizer.decode([int(t)], skip_special_tokens=True)}\"", end="")
+    print("]")
 
 if __name__ == "__main__":
     # parse the arguments
