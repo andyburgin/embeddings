@@ -1,6 +1,6 @@
 import torch
 import numpy as np
-from transformers import AutoModel, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
 from utilities.args_parser import parse_args
 from utilities.embeddings_print import print_direct_embeddings
 
@@ -10,8 +10,11 @@ def main(tokenizer_name, model_name, output_prefix, prompt):
     tokenizer.add_special_tokens({'pad_token': '[PAD]'})
 
     # Load the model configuration and model
-    model = AutoModel.from_pretrained(model_name)
-
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        dtype="auto",
+        device_map="auto"
+    )
     # Tokenize the input text
     tokens = tokenizer(prompt, return_tensors="pt")
     input_ids = tokens['input_ids']
@@ -30,7 +33,7 @@ def main(tokenizer_name, model_name, output_prefix, prompt):
 
     # Save the embeddings layers
     for layer in range(len(embeddings)):
-        np.savetxt(output_prefix+"-"+str(layer)+".txt", embeddings[layer][0].detach().numpy())
+        np.savetxt(output_prefix+"-"+str(layer)+".txt", embeddings[layer][0].detach().float().numpy())
 
 
 if __name__ == "__main__":

@@ -39,7 +39,7 @@ def print_embeddings(token_texts, encoded_tokens, embeddings_tensor, num_start_e
 
     # Iterate over each token and its embedding
     for idx, (token_id, token_text) in enumerate(zip(encoded_tokens, token_texts)):
-        embedding = embeddings_tensor[0, idx, :].detach().numpy()  # Assuming batch size of 1
+        embedding = embeddings_tensor[0, idx, :].detach().float().numpy()  # Assuming batch size of 1
         start_elements = ', '.join([f"{value:.4f}" for value in embedding[:num_start_elements]])
         last_element = f"{embedding[-1]:.4f}"
         embedding_str = f"{start_elements}, ..., {last_element}"

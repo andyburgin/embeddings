@@ -1,5 +1,5 @@
 import torch
-from transformers import AutoModel, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoTokenizer
 from utilities.args_parser import parse_args
 from utilities.embeddings_print import print_direct_embeddings
 
@@ -9,7 +9,11 @@ def main(tokenizer_name, model_name, prompt):
     tokenizer.add_special_tokens({'pad_token': '[PAD]'})
 
     # Load the model configuration and model
-    model = AutoModel.from_pretrained(model_name)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_name,
+        dtype="auto",
+        device_map="auto"
+    )
 
     # Tokenize the input text
     tokens = tokenizer(prompt, return_tensors="pt")
