@@ -113,3 +113,8 @@ http://127.0.0.1:8888/lab?token=58d424acfb90a81bad951f85e2ca23c7624e6cd50b6f8a5f
 Then open the notebook `render_layers.ipynb` and set the path an dinitial word list, images will be rendered to the folder defined in `png_prefix`.
 
 Click thorugh each section of the notebook and watch the images render.
+
+### Rendering video
+The last step of the notebook outputs the details and coordinates of tokens. 
+
+This can be used by the zoom_video/py script to render a video and zoom. You will need to update the various parameters in the script for viewports and other settings.  
